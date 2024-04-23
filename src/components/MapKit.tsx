@@ -1,7 +1,7 @@
 import { useJsApiLoader, GoogleMap, Marker } from "@react-google-maps/api";
 import { MapKitProp } from "../types";
 
-function MapKit({ location, places, selectedPlace, selectPlace }: MapKitProp) {
+function MapKit({ location, zoom, places, selectedPlace, selectPlace }: MapKitProp) {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: `${import.meta.env.VITE_GOOGLE_API_KEY}`,
@@ -11,7 +11,7 @@ function MapKit({ location, places, selectedPlace, selectPlace }: MapKitProp) {
     <GoogleMap
       mapContainerStyle={{ width: "100vw", height: "100vh"}}
       center={location}
-      zoom={15}
+      zoom={zoom}
     >
       {places.map((place, key) => {
         const isSelected = place === selectedPlace;

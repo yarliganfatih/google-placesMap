@@ -5,6 +5,7 @@ export type Coordinate = {
 
 export type MapKitProp = {
   location: Coordinate;
+  zoom: number;
   places: placeType[];
   selectedPlace: placeType;
   selectPlace: void | any;
