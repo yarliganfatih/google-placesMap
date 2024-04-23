@@ -7,3 +7,13 @@
     background: white;
     z-index: 2;
 }
+
+.rightBar{
+    position:fixed;
+    right: 0;
+    top:0;
+    height: 100vh;
+    width: 300px;
+    background: white;
+    z-index: 3;
+}

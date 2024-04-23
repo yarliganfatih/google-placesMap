@@ -5,7 +5,9 @@ export type Coordinate = {
 
 export type MapKitProp = {
   location: Coordinate;
-  markers: Coordinate[];
+  places: placeType[];
+  selectedPlace: placeType;
+  selectPlace: void | any;
 };
 
 export type ResultsPageProp = {
@@ -15,14 +17,30 @@ export type ResultsPageProp = {
   }
 };
 
+type placePhoto = {
+  photo_reference: string
+}
+
 export type placeType = {
   place_id: string,
   name: string,
+  rating: number,
+  user_ratings_total: number,
+  price_level: number,
+  types: string[],
+  vicinity: string,
+  photos: placePhoto[],
   geometry: {
     location: Coordinate
   }
 }
 
 export type PlaceListProp = {
-  places: placeType[]
+  places: placeType[],
+  selectPlace: void | any,
+  selectedPlace: placeType
+}
+
+export type PlaceDetailsProp = {
+  place: placeType
 }

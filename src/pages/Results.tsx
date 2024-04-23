@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { getPlaces } from "../api";
 import "../assets/pages/results.css";
 import PlaceList from "../components/PlaceList";
+import PlaceDetails from "../components/PlaceDetails";
 
 function Results() {
   const navigate = useNavigate();
@@ -18,7 +19,6 @@ function Results() {
     lng: 29.104826159053204,
   };
   const [places, setPlaces] = useState<placeType[]>([]);
-  const [markers, setMarkers] = useState<Coordinate[]>([]);
   const [mapLocation, setMapLocation] = useState<Coordinate>(defaultCoordinates);
 
   useEffect(() => {
@@ -43,20 +43,32 @@ function Results() {
     }
   };
 
-  useEffect(() => {
-    setMarkers([]);
-    if (places.length === 0) return;
-    setMarkers(places.map((place) => place.geometry.location));
-  }, [places]);
+  const [selectedPlace, setSelectedPlace] = useState<placeType | any>();
+
+  const selectPlace = (_place: placeType): void => {
+    setMapLocation(_place.geometry.location);
+    setSelectedPlace(_place);
+  };
 
   return (
     <>
       <div className="leftBar">
         <button onClick={() => navigate(-1)}>Back</button>
         <br></br>
-        {isLoading ? "Loading.." : <PlaceList places={places}></PlaceList>}
+        {isLoading ? (
+          "Loading.."
+        ) : (
+          <PlaceList places={places} selectPlace={selectPlace} selectedPlace={selectedPlace}></PlaceList>
+        )}
       </div>
-      <MapKit markers={markers} location={mapLocation} />
+      <MapKit location={mapLocation} places={places} selectedPlace={selectedPlace}  selectPlace={selectPlace}/>
+      {selectedPlace ? (
+        <div className="rightBar">
+          <button onClick={()=>setSelectedPlace(null)}>Close</button>
+          <br></br>
+          <PlaceDetails place={selectedPlace}></PlaceDetails>
+        </div>
+      ) : null}
     </>
   );
 }

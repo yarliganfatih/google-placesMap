@@ -1,13 +1,22 @@
 import { useState } from "react";
 import { PlaceListProp } from "../types";
+import "../assets/components/placeList.css";
 
-function PlaceList({ places }: PlaceListProp) {
+function PlaceList({ places, selectPlace, selectedPlace }: PlaceListProp) {
   if (places.length == 0) return <>No places found in this area.</>;
   return (
     <>
       <ul>
         {places.map((place) => (
-          <li key={place.place_id}>{place.name}</li>
+          <li
+            className={selectedPlace == place ? "selectedPlace" : ""}
+            key={place.place_id}
+            onClick={() => {
+              selectPlace(place);
+            }}
+          >
+            {place.name}
+          </li>
         ))}
       </ul>
     </>
