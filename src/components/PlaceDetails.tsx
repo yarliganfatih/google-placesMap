@@ -38,8 +38,8 @@ function PlaceDetails({ place }: PlaceDetailsProp) {
       <span>{place.price_level ? " - " : null}</span>
       <span>{renderPriceLevel(place.price_level)}</span>
       <ul>
-        {place.types.map((type) => (
-          <li>{type}</li>
+        {place.types.map((type, key) => (
+          <li key={key}>{type}</li>
         ))}
       </ul>
       <span>{place.vicinity}</span>
