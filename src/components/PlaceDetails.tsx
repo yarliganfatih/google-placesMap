@@ -8,12 +8,14 @@ function PlaceDetails({ place }: PlaceDetailsProp) {
   const [placePhotoHref, setPlacePhotoHref] = useState<string>("");
 
   useEffect(() => {
+    if(place?.photos==null) return setPlacePhotoHref("./public/image_not_found.jpg");
     getPlacePhoto(place.photos[0].photo_reference)
       .then((photoUrl) => {
         if (photoUrl) {
           setPlacePhotoHref(photoUrl);
         } else {
           console.warn("Failed to fetch photo");
+          setPlacePhotoHref("./public/image_not_found.jpg");
         }
       })
       .catch((error) => {
