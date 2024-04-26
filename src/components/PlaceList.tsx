@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { PlaceListProp } from "../types";
 import "../assets/components/placeList.css";
 

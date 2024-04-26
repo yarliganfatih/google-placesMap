@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import NearBySearch from "./pages/NearBySearch";
 import Results from "./pages/Results";
