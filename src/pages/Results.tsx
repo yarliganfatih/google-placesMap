@@ -66,7 +66,7 @@ function Results() {
   return (
     <>
       <div className="leftBar">
-        <button onClick={() => navigate(-1)}>Back</button>
+        <button className="backButton" onClick={() => navigate(-1)}> ❮ Search Again</button>
         <br></br>
         {isLoading ? (
           "Loading.."
@@ -87,8 +87,7 @@ function Results() {
       />
       {selectedPlace ? (
         <div className="rightBar">
-          <button onClick={unSelectPlace}>Close</button>
-          <br></br>
+          <button className="closeButton" onClick={unSelectPlace}>X</button>
           <PlaceDetails place={selectedPlace}></PlaceDetails>
         </div>
       ) : null}

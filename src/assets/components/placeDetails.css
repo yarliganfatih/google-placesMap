@@ -1,0 +1,58 @@
+  .placeDetails {
+    margin: 20px 15px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .placeDetails img {
+    display: block;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .placeDetails h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .placeDetails .rating {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  
+  .placeDetails .rating span {
+    margin-right: 6px;
+  }
+  
+  .placeDetails .rating .star {
+    color: #f8b400;
+    font-size: x-large;
+  }
+  
+  .placeDetails .price,
+  .placeDetails .vicinity {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .placeDetails .types {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+    font-size: initial;
+  }
+  
+  .placeDetails .types li {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #777;
+    border-radius: 8px;
+    padding: 3px 8px;
+    border: 1px solid #777;
+  }
+  
+  .placeDetails .vicinity {
+    margin-top: 10px;
+  }

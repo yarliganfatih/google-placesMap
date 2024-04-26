@@ -1,4 +1,31 @@
-.selectedPlace{
-    color: red;
-    font-weight: 600;
-}
+  .places {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: -webkit-fill-available;
+    overflow-y: auto;
+  }
+
+  .places li {
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .places li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .selectedPlace {
+    background-color: #007bff;
+    color: #fff;
+    white-space: normal;
+  }
+
+  .selectedPlace:hover {
+    background-color: #005dc0 !important;
+  }

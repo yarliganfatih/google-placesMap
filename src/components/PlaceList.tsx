@@ -6,7 +6,7 @@ function PlaceList({ places, selectPlace, selectedPlace }: PlaceListProp) {
   if (places.length == 0) return <>No places found in this area.</>;
   return (
     <>
-      <ul>
+      <ul className="places">
         {places.map((place) => (
           <li
             className={selectedPlace == place ? "selectedPlace" : ""}

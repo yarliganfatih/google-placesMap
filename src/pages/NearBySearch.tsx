@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../assets/pages/nearBySearch.css";
 
 function NearBySearch() {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ function NearBySearch() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="locationForm" onSubmit={handleSubmit}>
         <label>
           <span>Latitude</span>
           <br></br>
